@@ -11,7 +11,7 @@ const Header = () => {
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <Link className="navbar-brand" href="#">
+                    <Link className="navbar-brand" to='/'>
                         <img src={logo} alt="" width="30" height="24" className="d-inline-block align-text-top" />E-Knowledge
                     </Link>
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
@@ -27,7 +27,7 @@ const Header = () => {
                             </li>
                             <li className="form-check form-switch">
                                 <input className="form-check-input mt-3 mx-4" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
-                                    <label className="form-check-label mt-2 " for="flexSwitchCheckDefault">Theme Color</label>
+                                    <label className="form-check-label mt-2 " htmlFor="flexSwitchCheckDefault">Theme Color</label>
                             </li>
                         </ul>
                         <form className="d-flex">
