@@ -27,7 +27,7 @@ const Header = () => {
                             </li>
                             <li className="form-check form-switch">
                                 <input className="form-check-input mt-3 mx-4" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
-                                    <label className="form-check-label mt-2 " htmlFor="flexSwitchCheckDefault">Theme Color</label>
+                                <label className="form-check-label mt-2 " htmlFor="flexSwitchCheckDefault">Theme Color</label>
                             </li>
                         </ul>
                         <form className="d-flex">
