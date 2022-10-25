@@ -3,6 +3,7 @@ import Main from "../../layout/Main";
 import Category from "../../Pages/Category/Category";
 import Course from "../../Pages/Course/Course";
 import Home from "../../Pages/Home/Home";
+import NotFound404 from "../../Pages/Shared/NotFound404/NotFound404";
 
 export const routes = createBrowserRouter([
     {
@@ -33,5 +34,9 @@ export const routes = createBrowserRouter([
             //     element:<Register></Register>
             // },
         ]
+    },
+    { 
+        path: '*', 
+        element: <NotFound404></NotFound404>
     }
 ]);
