@@ -1,20 +1,24 @@
 import React from 'react';
+import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import CourseSummaryCard from '../Shared/CourseSummaryCard/CourseSummaryCard';
 
 const Home = () => {
     const allCourses = useLoaderData();
-    
+
     return (
         <div>
-            <h2>Dragon News {allCourses.length}</h2>
-            {
-            allCourses.map(course => <CourseSummaryCard
-                key={course._id}
-                course={course}
-            ></CourseSummaryCard>)
-            
-            }
+            <Container>
+                <Row>
+                    {
+                        allCourses.map(course => <CourseSummaryCard
+                            key={course._id}
+                            course={course}
+                        ></CourseSummaryCard>)
+                    }
+                </Row>
+            </Container>
+
         </div>
     );
 };

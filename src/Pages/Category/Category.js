@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container, Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import CourseSummaryCard from '../Shared/CourseSummaryCard/CourseSummaryCard';
 
@@ -7,13 +8,17 @@ const Category = () => {
 
     return (
         <div>
-            <h4>This is Category has: {categoryWiseCourse.length} data</h4>
-            {
-                categoryWiseCourse.map(course => <CourseSummaryCard
-                    key={course._id}
-                    course={course}
-                ></CourseSummaryCard> )
-            }
+            <h4>This category has: {categoryWiseCourse.length} data</h4>
+            <Container>
+                <Row>
+                    {
+                        categoryWiseCourse.map(course => <CourseSummaryCard
+                            key={course._id}
+                            course={course}
+                        ></CourseSummaryCard> )
+                    }
+                </Row>
+            </Container>
         </div>
     );
 };
