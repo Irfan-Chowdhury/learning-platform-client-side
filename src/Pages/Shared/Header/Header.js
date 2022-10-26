@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import logo from '../../../logo.png';
 import { FaUser } from 'react-icons/fa';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { Button, Image } from 'react-bootstrap';
 
 const Header = () => {
     const {user} = useContext(AuthContext);
-    console.log(user);
 
     return (
         <div>
@@ -35,9 +35,24 @@ const Header = () => {
                             </li>
                         </ul>
                         <form className="d-flex">
-                            <button style={{ border: 'none' }}><FaUser></FaUser></button>
-                            <Link to='/login' className="btn btn-outline-success mx-2" aria-current="page">Login</Link>
-                            <Link to='/register' className="btn btn-outline-success" aria-current="page">Register</Link>
+                                {
+                                    user?.uid ?
+                                    <>
+                                        <Link to='/profile' style={{ border: 'none' }}>
+                                            {
+                                                user?.photoURL ?
+                                                <Image title={user?.displayName} style={{height:'30px'}} roundedCircle src={user.photoURL}></Image>
+                                                : <FaUser></FaUser>
+                                            }
+                                        </Link>
+                                        <Button className="ms-2 btn btn-light text-dark btn-outline-danger">Log Out</Button>
+                                    </>
+                                    :
+                                    <>
+                                        <Link to='/login' className="btn btn-outline-success mx-2" aria-current="page">Login</Link>
+                                        <Link to='/register' className="btn btn-outline-success" aria-current="page">Register</Link>
+                                    </>
+                                }                            
                         </form>
                     </div>
                 </div>
