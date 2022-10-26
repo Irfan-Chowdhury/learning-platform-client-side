@@ -6,7 +6,13 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { Button, Image } from 'react-bootstrap';
 
 const Header = () => {
-    const {user} = useContext(AuthContext);
+    const {user, logOut} = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+        .then( () => {})
+        .catch(error => console.error(error));
+    }
 
     return (
         <div>
@@ -45,7 +51,7 @@ const Header = () => {
                                                 : <FaUser></FaUser>
                                             }
                                         </Link>
-                                        <Button className="ms-2 btn btn-light text-dark btn-outline-danger">Log Out</Button>
+                                        <Button className="ms-2 btn btn-light text-dark btn-outline-danger" onClick={handleLogOut}>Log Out</Button>
                                     </>
                                     :
                                     <>
