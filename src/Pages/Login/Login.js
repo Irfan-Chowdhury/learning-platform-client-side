@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Button, ButtonGroup, Card, Col, Container, Form, Row } from 'react-bootstrap';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
@@ -12,15 +12,34 @@ const Login = () => {
     const navigate = useNavigate();
 
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
+    // Log In with Google
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
-            .then(result => {
-                const user = result.user;
-                console.log(user);
-                navigate('/');
-            })
-            .catch(error => console.error(error));
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            navigate('/');
+        })
+        .catch(error => {
+            console.error(error)
+            setError(error.message)
+        });
+    }
+
+    // Log In with GitHub
+    const handleGitHubSignIn = () => {
+        providerLogin(githubProvider)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            navigate('/');
+        })
+        .catch(error => {
+            console.error(error)
+            setError(error.message)
+        });
     }
 
     const handleSubmit = (event) => {
@@ -72,7 +91,7 @@ const Login = () => {
                                         Login
                                     </Button>
                                     <Button onClick={handleGoogleSignIn} className='mb-2' variant="outline-primary"> <FaGoogle></FaGoogle> Login with Google</Button>
-                                    <Button variant="outline-dark"> <FaGithub></FaGithub> Login with GitHub</Button>
+                                    <Button onClick={handleGitHubSignIn} variant="outline-dark"> <FaGithub></FaGithub> Login with GitHub</Button>
                                 </ButtonGroup>
                             </Form>
                         </Card.Body>
