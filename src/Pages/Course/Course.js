@@ -7,7 +7,7 @@ import { FaFilePdf } from 'react-icons/fa';
 
 const Course = () => {
     const course = useLoaderData();
-    const { title, details, image_url, category_id } = course;
+    const { title, details, image_url } = course;
 
     return (
         <Container className='m-3'>
@@ -15,7 +15,7 @@ const Course = () => {
                 <Col lg="2"></Col>
                 <Col lg="8">
                     <Card>
-                        <div class="d-flex justify-content-between">
+                        <div className="d-flex justify-content-between">
                             <Card.Title className='ms-4 p-3'>{title}</Card.Title>
                             <FaFilePdf  className='me-5 mt-3' style={{fontSize:'20px'}}></FaFilePdf>
                         </div>
