@@ -2,24 +2,38 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import { Col, Container, Row } from 'react-bootstrap';
+import { FaFilePdf } from 'react-icons/fa';
 
 const Course = () => {
     const course = useLoaderData();
-    const {title, details, image_url, category_id} = course;
+    const { title, details, image_url, category_id } = course;
 
     return (
-        <Card>
-            <Card.Title>{title}</Card.Title>
-            <Card.Img variant="top" src={image_url} style={{width:'500px',height:'400px'}}/>
-            <Card.Body>
-                <Card.Text>
-                    {details}
-                </Card.Text>
-                <Link to={`/category/${category_id}`}>
-                    <Button variant="primary">All news in the Category</Button>
-                </Link>
-            </Card.Body>
-        </Card>
+        <Container className='m-3'>
+            <Row>
+                <Col lg="2"></Col>
+                <Col lg="8">
+                    <Card>
+                        <div class="d-flex justify-content-between">
+                            <Card.Title className='ms-4 p-3'>{title}</Card.Title>
+                            <FaFilePdf  className='me-5 mt-3' style={{fontSize:'20px'}}></FaFilePdf>
+                        </div>
+                        <Card.Img className='ms-5' variant="top" src={image_url} style={{ width: '500px', height: '400px' }} />
+                        <Card.Body>
+                            <Card.Text>
+                                {details}
+                            </Card.Text>
+                            <Link to={`/category/${category_id}`}>
+                                <Button variant="primary">Get premium access.</Button>
+                            </Link>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col lg="2"></Col>
+            </Row>
+        </Container>
+
     );
 };
 
