@@ -24,7 +24,9 @@ const Course = () => {
                             <Card.Text>
                                 {details}
                             </Card.Text>
-                            <Link to={`/category/${category_id}`}>
+                            {/* <Link to={`/category/${category_id}`}> */}
+
+                            <Link to='/checkout'>
                                 <Button variant="primary">Get premium access.</Button>
                             </Link>
                         </Card.Body>
