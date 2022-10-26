@@ -36,8 +36,8 @@ const Header = () => {
                         </ul>
                         <form className="d-flex">
                             <button style={{ border: 'none' }}><FaUser></FaUser></button>
-                            <button className="btn btn-outline-success mx-2" type="submit">Login</button>
-                            <button className="btn btn-outline-success" type="submit">Register</button>
+                            <Link to='/login' className="btn btn-outline-success mx-2" aria-current="page">Login</Link>
+                            <Link to='/register' className="btn btn-outline-success" aria-current="page">Register</Link>
                         </form>
                     </div>
                 </div>

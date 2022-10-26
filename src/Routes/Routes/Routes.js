@@ -4,6 +4,8 @@ import Category from "../../Pages/Category/Category";
 import Checkout from "../../Pages/Checkout/Checkout";
 import Course from "../../Pages/Course/Course";
 import Home from "../../Pages/Home/Home";
+import Login from "../../Pages/Login/Login";
+import Register from "../../Pages/Register/Register";
 import NotFound404 from "../../Pages/Shared/NotFound404/NotFound404";
 
 export const routes = createBrowserRouter([
@@ -30,10 +32,14 @@ export const routes = createBrowserRouter([
                 path:'/checkout',
                 element:<Checkout></Checkout>
             },
-            // {
-            //     path:'/register',
-            //     element:<Register></Register>
-            // },
+            {
+                path:'/login',
+                element:<Login></Login>
+            },
+            {
+                path:'/register',
+                element:<Register></Register>
+            },
         ]
     },
     { 
