@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../logo.png';
 import { FaUser } from 'react-icons/fa';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
+    const {user} = useContext(AuthContext);
+    console.log(user);
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
