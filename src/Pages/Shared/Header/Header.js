@@ -33,7 +33,8 @@ const Header = () => {
 
     return (
         <div>
-            <nav  className={`navbar navbar-expand-lg ${!toggle ? 'navbar-light bg-light text-dark' : 'navbar-dark bg-dark text-light'}`}>
+            {/* <nav  className={`navbar navbar-expand-lg ${!toggle ? 'navbar-light bg-light text-dark' : 'navbar-dark bg-dark text-light'}`}> */}
+            <nav  className={`navbar navbar-expand-lg navbar-info bg-info text-dark`}>
                 <div className="container">
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -47,10 +48,10 @@ const Header = () => {
                                 <Link className="nav-link active" aria-current="page" to='/'>Courses</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page">FAQ</Link>
+                                <Link className="nav-link active" aria-current="page" to='/blog'>Blog</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page">Blog</Link>
+                                <Link className="nav-link active" aria-current="page">FAQ</Link>
                             </li>
                             <li className="form-check form-switch">
                                 <input onChange={handleChangeToggle} className={`form-check-input mt-3 mx-4 ${!toggle ? 'bg-light' : 'bg-dark'}`} type="checkbox" role="switch" id="flexSwitchCheckDefault" />

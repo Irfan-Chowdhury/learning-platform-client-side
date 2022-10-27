@@ -25,7 +25,7 @@ const Course = () => {
                     <Card ref={componentRef}>
                         <div className="d-flex justify-content-between">
                             <Card.Title className='ms-4 p-3'>{title}</Card.Title>
-                            <button style={{border:'none',backgroundColor:'#FFF'}}><FaFilePdf onClick={handlePrint} className='me-5 mt-3' style={{fontSize:'20px'}}></FaFilePdf></button>
+                            <button style={{border:'none',backgroundColor:'#FFF'}}><FaFilePdf onClick={handlePrint} className='me-5 mt-3 text-danger' style={{fontSize:'30px'}}></FaFilePdf></button>
                         </div>
                         <Card.Img className='ms-5' variant="top" src={image_url} style={{ width: '500px', height: '400px' }} />
                         <Card.Body>

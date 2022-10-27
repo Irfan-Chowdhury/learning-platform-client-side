@@ -14,6 +14,7 @@
     - Authentication Implemented
     - Login with Email/Password, Google, GitHub
     - Setup Private Route
+    - PDF Implemented
     - 404 page implemented
 4. **Technologies Used :**
     - Library  : React
