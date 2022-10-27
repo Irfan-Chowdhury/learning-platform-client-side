@@ -10,10 +10,12 @@ const AuthProvider = ({children}) => {
 
     const [user, setUser] = useState(null);
     const [toggle, setToggle] = useState(false);
+    const [loading, setLoading] = useState(true); //লগিন থাকা অবস্থাই রিলোড দিলে, লগিন পেজে নিয়ে আসে । এটা ইমপ্লেন্ট করলে হবেনা ।
 
 
     // Create By Email and Password
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
@@ -24,22 +26,28 @@ const AuthProvider = ({children}) => {
 
     // Google
     const providerLogin = (provider) => {
+        setLoading(true);
         return signInWithPopup(auth, provider)
     }
 
     useEffect(()=>{
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             console.log('User Inside State Changed', currentUser);
-            setUser(currentUser);
+            if(currentUser===null || currentUser.emailVerified){
+                setUser(currentUser);
+            }
+            setLoading(false);
         })
         return () => unSubscribe();
     },[]);
 
     const signIn = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
     const logOut = () => {
+        setLoading(true);
         return signOut(auth);
     }
 
@@ -65,7 +73,9 @@ const AuthProvider = ({children}) => {
         signIn,
         logOut,
         toggle,
-        handleChangeToggle
+        handleChangeToggle,
+        loading,
+        setLoading
     };
 
 

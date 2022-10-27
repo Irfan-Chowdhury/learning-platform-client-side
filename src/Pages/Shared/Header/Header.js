@@ -8,6 +8,7 @@ import { Button, Image } from 'react-bootstrap';
 const Header = () => {
     const {user, logOut, toggle, handleChangeToggle} = useContext(AuthContext);
     const navigate = useNavigate();
+    console.log('Now',user);
 
     const handleLogOut = () => {
         logOut()
