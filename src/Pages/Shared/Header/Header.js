@@ -33,29 +33,28 @@ const Header = () => {
 
     return (
         <div>
-            {/* <nav  className={`navbar navbar-expand-lg ${!toggle ? 'navbar-light bg-light text-dark' : 'navbar-dark bg-dark text-light'}`}> */}
-            <nav  className={`navbar navbar-expand-lg navbar-info bg-info text-dark`}>
+            <nav  className={`navbar navbar-expand-lg ${!toggle ? 'navbar-info bg-info' : 'navbar-secondary bg-secondary'}`}>
                 <div className="container">
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <Link className="navbar-brand" to='/'>
-                        <img src={logo} alt="" width="30" height="24" className="d-inline-block align-text-top" /> <span className='me-3'>E-Knowledge</span>
+                        <img src={logo} alt="" width="30" height="24" className="d-inline-block align-text-top "/> <span className='me-3 text-light'>E-Knowledge</span>
                     </Link>
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to='/'>Courses</Link>
+                                <Link className="nav-link active text-light" aria-current="page" to='/'>Courses</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to='/blog'>Blog</Link>
+                                <Link className="nav-link active text-light" aria-current="page" to='/blog'>Blog</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page">FAQ</Link>
+                                <Link className="nav-link active text-light" aria-current="page">FAQ</Link>
                             </li>
                             <li className="form-check form-switch">
                                 <input onChange={handleChangeToggle} className={`form-check-input mt-3 mx-4 ${!toggle ? 'bg-light' : 'bg-dark'}`} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
-                                <label className="form-check-label mt-2 " htmlFor="flexSwitchCheckDefault"> {!toggle ? 'Light Mode' : 'Dark Mode'}</label>
+                                <label className="form-check-label mt-2 text-light" htmlFor="flexSwitchCheckDefault"> {!toggle ? 'Light Mode' : 'Dark Mode'}</label>
                             </li>
                         </ul>
                         <form className="d-flex">
@@ -73,8 +72,8 @@ const Header = () => {
                                     </>
                                     :
                                     <>
-                                        <Link to='/login' className="btn btn-outline-success mx-2" aria-current="page">Login</Link>
-                                        <Link to='/register' className="btn btn-outline-success" aria-current="page">Register</Link>
+                                        <Link to='/login' className="btn btn-outline-light mx-2" aria-current="page">Login</Link>
+                                        <Link to='/register' className="btn btn-outline-light" aria-current="page">Register</Link>
                                     </>
                                 }                            
                         </form>
