@@ -8,7 +8,7 @@ import { useReactToPrint } from 'react-to-print';
 
 const Course = () => {
     const course = useLoaderData();
-    const { title, details, image_url } = course;
+    const { title, details, image_url, _id } = course;
 
     // Pdf
     const componentRef = useRef();
@@ -34,7 +34,7 @@ const Course = () => {
                             </Card.Text>
                             {/* <Link to={`/category/${category_id}`}> */}
 
-                            <Link to='/checkout'>
+                            <Link to={`/checkout/course/${_id}`}>
                                 <Button variant="primary">Get premium access.</Button>
                             </Link>
                         </Card.Body>
