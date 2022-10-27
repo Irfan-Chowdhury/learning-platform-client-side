@@ -9,6 +9,8 @@ const auth = getAuth(app);
 const AuthProvider = ({children}) => {
 
     const [user, setUser] = useState(null);
+    const [toggle, setToggle] = useState(false);
+
 
     // Create By Email and Password
     const createUser = (email, password) => {
@@ -41,13 +43,29 @@ const AuthProvider = ({children}) => {
         return signOut(auth);
     }
 
+
+    // Toggle Change
+    const handleChangeToggle = (event) => {
+        const isChecked = event.target.checked;
+        if (isChecked) {
+            console.log('Dark Mode',isChecked);
+            setToggle(isChecked)
+        }else{
+            console.log('Light Mode',isChecked);
+            setToggle(isChecked)
+        }
+    }
+
+
     const authInfo = {
         user, 
         createUser,
         updateUserProfile,
         providerLogin,
         signIn,
-        logOut
+        logOut,
+        toggle,
+        handleChangeToggle
     };
 
 

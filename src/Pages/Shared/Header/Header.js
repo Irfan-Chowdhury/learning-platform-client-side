@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../../logo.png';
 import { FaUser } from 'react-icons/fa';
@@ -6,7 +6,7 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { Button, Image } from 'react-bootstrap';
 
 const Header = () => {
-    const {user, logOut} = useContext(AuthContext);
+    const {user, logOut, toggle, handleChangeToggle} = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleLogOut = () => {
@@ -17,15 +17,29 @@ const Header = () => {
         .catch(error => console.error(error));
     }
 
+    // const [toggle, setToggle] = useState(false);
+
+    // const handleChangeToggle = (event) => {
+    //     const isChecked = event.target.checked;
+        
+    //     if (isChecked) {
+    //         console.log('Dark Mode',isChecked);
+    //         setToggle(isChecked)
+    //     }else{
+    //         console.log('Light Mode',isChecked);
+    //         setToggle(isChecked)
+    //     }
+    // }
+
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav  className={`navbar navbar-expand-lg ${!toggle ? 'navbar-light bg-light text-dark' : 'navbar-dark bg-dark text-light'}`}>
                 <div className="container">
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <Link className="navbar-brand" to='/'>
-                        <img src={logo} alt="" width="30" height="24" className="d-inline-block align-text-top" />E-Knowledge
+                        <img src={logo} alt="" width="30" height="24" className="d-inline-block align-text-top" /> <span className='me-3'>E-Knowledge</span>
                     </Link>
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -39,8 +53,8 @@ const Header = () => {
                                 <Link className="nav-link active" aria-current="page">Blog</Link>
                             </li>
                             <li className="form-check form-switch">
-                                <input className="form-check-input mt-3 mx-4" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
-                                <label className="form-check-label mt-2 " htmlFor="flexSwitchCheckDefault">Theme Color</label>
+                                <input onChange={handleChangeToggle} className={`form-check-input mt-3 mx-4 ${!toggle ? 'bg-light' : 'bg-dark'}`} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+                                <label className="form-check-label mt-2 " htmlFor="flexSwitchCheckDefault"> {!toggle ? 'Light Mode' : 'Dark Mode'}</label>
                             </li>
                         </ul>
                         <form className="d-flex">

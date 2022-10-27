@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import CourseSummaryCard from '../Shared/CourseSummaryCard/CourseSummaryCard';
 
