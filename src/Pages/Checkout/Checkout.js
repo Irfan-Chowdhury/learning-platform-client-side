@@ -4,7 +4,7 @@ import './Checkout.css';
 
 const Checkout = () => {
     const course = useLoaderData();
-    const { title, details, image_url, _id } = course;
+    const { title} = course;
 
     return (
         <div className='mt-5 card'>

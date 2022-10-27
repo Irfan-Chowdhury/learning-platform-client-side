@@ -2,15 +2,15 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Button, ButtonGroup, Card, Col, Container, Form, Row } from 'react-bootstrap';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
-
     const [error, setError] = useState('');
-    const { providerLogin, signIn } = useContext(AuthContext);
+    const {signIn, providerLogin, setLoading} = useContext(AuthContext);
     const navigate = useNavigate();
-
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
 
@@ -50,16 +50,19 @@ const Login = () => {
         console.log(email, password);
 
         signIn(email, password)
-            .then(result => {
-                const user = result.user;
-                console.log(user);
-                form.reset();
-                navigate('/');
-            })
-            .catch(error => {
-                console.error(error)
-                setError(error.message)
-            });
+        .then(result => {
+            const user = result.user;
+            console.log('user',user);
+            form.reset();
+            navigate(from, {replace:true});
+        })
+        .catch(error => {
+            console.error(error)
+            setError(error.message)
+        })
+        .finally(()=>{
+            setLoading(false);
+        });
     }
 
     return (

@@ -12,7 +12,6 @@ const AuthProvider = ({children}) => {
     const [toggle, setToggle] = useState(false);
     const [loading, setLoading] = useState(true); //লগিন থাকা অবস্থাই রিলোড দিলে, লগিন পেজে নিয়ে আসে । এটা ইমপ্লেন্ট করলে হবেনা ।
 
-
     // Create By Email and Password
     const createUser = (email, password) => {
         setLoading(true);
@@ -24,32 +23,29 @@ const AuthProvider = ({children}) => {
         return updateProfile(auth.currentUser, profile);
     }
 
-    // Google
+    // Google & GitHub
     const providerLogin = (provider) => {
         setLoading(true);
         return signInWithPopup(auth, provider)
     }
 
-    useEffect(()=>{
-        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-            console.log('User Inside State Changed', currentUser);
-            if(currentUser===null || currentUser.emailVerified){
-                setUser(currentUser);
-            }
-            setLoading(false);
-        })
-        return () => unSubscribe();
-    },[]);
-
     const signIn = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
-
     const logOut = () => {
         setLoading(true);
         return signOut(auth);
     }
+
+    useEffect(()=>{
+        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+            console.log('User Inside State Changed', currentUser);
+            setUser(currentUser);
+            setLoading(false);
+        })
+        return () => unSubscribe();
+    },[]);
 
 
     // Toggle Change
@@ -64,20 +60,18 @@ const AuthProvider = ({children}) => {
         }
     }
 
-
     const authInfo = {
-        user, 
-        createUser,
-        updateUserProfile,
-        providerLogin,
-        signIn,
-        logOut,
-        toggle,
-        handleChangeToggle,
-        loading,
-        setLoading
-    };
-
+            user, 
+            createUser,
+            updateUserProfile,
+            providerLogin,
+            signIn,
+            logOut,
+            toggle,
+            handleChangeToggle,
+            loading,
+            setLoading
+        };
 
     return (
         <AuthContext.Provider value={authInfo}>

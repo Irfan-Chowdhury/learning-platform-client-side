@@ -31,7 +31,6 @@ export const routes = createBrowserRouter([
                 loader: ({params}) => fetch(`https://learning-server-sigma.vercel.app/course/${params.id}`) 
             },
             {
-                // path:'/checkout/course/:id',
                 path:'/checkout/course/:id',
                 element:<PrivateRoute><Checkout></Checkout></PrivateRoute>,
                 loader: ({params}) => fetch(`https://learning-server-sigma.vercel.app/course/${params.id}`) 
