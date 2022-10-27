@@ -18,6 +18,6 @@
 4. **Technologies Used :**
     - Library  : React
     - Famework : Express.js , React Bootstrap
-    - Other Packages: React Icons, React Router, React Hot Taost
+    - Other Packages: React Icons, React Router, React Hot Taost, React To Print
     - Cloud Storage: Firebase (Client), Vercel (Server)
  
