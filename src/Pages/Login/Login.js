@@ -2,7 +2,7 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Button, ButtonGroup, Card, Col, Container, Form, Row } from 'react-bootstrap';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
@@ -63,11 +63,11 @@ const Login = () => {
     }
 
     return (
-        <Container className='m-3'>
+        <Container>
             <Row>
                 <Col lg="2"></Col>
                 <Col lg="7">
-                    <Card>
+                    <Card className='text-dark'>
                         <Card.Title className='p-3 text-center'>Login Form</Card.Title>
                         <Card.Body>
                             <Form onSubmit={handleSubmit}>
@@ -81,8 +81,8 @@ const Login = () => {
                                     <Form.Control type="password" name='password' placeholder="Password" required />
                                 </Form.Group>
 
+                                <p>Already register ? Please goto <Link to="/register">Registration</Link> </p>
 
-                                
                                 <Form.Text className="text-danger">
                                     {error}
                                 </Form.Text>

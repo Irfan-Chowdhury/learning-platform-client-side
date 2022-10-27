@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Card, ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const LeftSidebar = () => {
@@ -13,13 +14,16 @@ const LeftSidebar = () => {
     return (
         <div className='mt-5 text-start'>
             <h5>All Category : {categories.length}</h5>
-            <div>
-                {
-                    categories.map(category => <p key={category.id}>
-                        <Link to={`/category/${category.id}`} style={{ textDecoration: 'none' }}>{category.name}</Link>
-                    </p> )
-                }
-            </div>
+            
+            <Card>
+                <ListGroup variant="flush">
+                    {
+                        categories.map(category => <p key={category.id}>
+                         <ListGroup.Item><Link to={`/category/${category.id}`} style={{ textDecoration: 'none' }}>{category.name}</Link></ListGroup.Item>
+                        </p> )
+                    }
+                </ListGroup>
+            </Card>
         </div>
     );
 };

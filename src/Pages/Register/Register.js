@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
@@ -44,7 +45,7 @@ const Register = () => {
             <Row>
                 <Col lg="2"></Col>
                 <Col lg="7">
-                    <Card>
+                    <Card className='text-dark'>
                         <Card.Title className='p-3 text-center'>Registration Form</Card.Title>
                         <Card.Body>
                             <Form onSubmit={handleSubmit}>
@@ -67,6 +68,8 @@ const Register = () => {
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control type="password" name='password' placeholder="Password" required />
                                 </Form.Group>
+                                <p>Already have an account ? Please <Link to="/login">Login</Link> </p>
+
 
 
                                 <Button variant="primary" type="submit">
